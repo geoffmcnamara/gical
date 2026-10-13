@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gical"
+version = "0.2.0"
+description = "A lightweight command-line calendar viewer with iCal and weather integration."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "MIT" }
+authors = [
+    { name = "Geoff McNamara", email = "geoffm.companionway@gmail.com" }
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "docopt>=0.6.2",
+    "requests>=2.25.0",
+    "icalendar>=5.0.0",
+    "recurring_ical_events>=2.0.0",
+    "gtoolz",
+]
+
+[project.scripts]
+gical = "gical:main"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+tag_format = "v$version"
+version_scheme = "semver"
+version_provider = "pep621"
+update_changelog_on_bump = true
+version_files = [
+    "gical.py:__VERSION__",
+    "pyproject.toml:project.version"
+]
+
